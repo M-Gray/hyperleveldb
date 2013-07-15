@@ -1,10 +1,9 @@
 package levigo
 
 /*
-#cgo LDFLAGS: -lleveldb
+#cgo pkg-config: libhyperleveldb
+#include <hyperleveldb/c.h>
 #include <stdlib.h>
-#include "leveldb/c.h"
-
 // This function exists only to clean up lack-of-const warnings when
 // leveldb_approximate_sizes is called from Go-land.
 void levigo_leveldb_approximate_sizes(

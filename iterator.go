@@ -1,8 +1,8 @@
 package levigo
 
-// #cgo LDFLAGS: -lleveldb
+// #cgo pkg-config: libhyperleveldb
+// #include <hyperleveldb/c.h>
 // #include <stdlib.h>
-// #include "leveldb/c.h"
 import "C"
 
 import (
