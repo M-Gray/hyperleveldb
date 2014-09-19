@@ -16,6 +16,10 @@ func init() {
 
 // This testcase is a port of leveldb's c_test.c.
 func TestC(t *testing.T) {
+	if GetLevelDBMajorVersion() <= 0 {
+		t.Errorf("Major version cannot be less than zero")
+	}
+
 	dbname := tempDir(t)
 	defer deleteDBDirectory(t, dbname)
 	env := NewDefaultEnv()
@@ -224,6 +228,7 @@ func TestNilSlicesInDb(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Database could not be opened: %v", err)
 	}
+	defer db.Close()
 	val, err := db.Get(ro, []byte("missing"))
 	if err != nil {
 		t.Errorf("Get failed: %v", err)
