@@ -1,9 +1,6 @@
 package levigo
-
-/*
 //#cgo pkg-config: libhyperleveldb
 //#include <hyperleveldb/c.h>
-*/
 import "C"
 
 func GetLevelDBMajorVersion() int {
